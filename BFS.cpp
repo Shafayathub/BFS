@@ -4,29 +4,35 @@ using namespace std;
 vector<int> adj_list[1005];
 bool vis[1005];
 
-void bfs(int src){
+void bfs(int src)
+{
     queue<int> q;
     q.push(src);
     vis[src] = true;
-    while(!q.empty()){
+    while (!q.empty())
+    {
         int parent = q.front();
         q.pop();
-        
+
         cout << parent << " ";
 
-        for (int child : adj_list[parent]){
-            if(!vis[child])
-            q.push(child);
-            vis[child] = true;
+        for (int child : adj_list[parent])
+        {
+            if (!vis[child])
+            {
+                q.push(child);
+                vis[child] = true;
+            }
         }
     }
 }
 
-int main() {
- 
+int main()
+{
+
     int n, e;
     cin >> n >> e;
-    
+
     while (n--)
     {
         int a, b;
