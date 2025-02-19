@@ -4,16 +4,20 @@ using namespace std;
 vector<int> adj_list[1005];
 bool vis[1005];
 
-void bfs(int src){
+void bfs(int src)
+{
     queue<int> q;
     q.push(src);
     vis[src] = true;
-    while(!q.empty()){
+    while (!q.empty())
+    {
         int parent = q.front();
         q.pop();
 
-        for(int child : adj_list[parent]){
-            if(!vis[child]){
+        for (int child : adj_list[parent])
+        {
+            if (!vis[child])
+            {
                 q.push(child);
                 vis[child] = true;
             }
@@ -21,23 +25,28 @@ void bfs(int src){
     }
 }
 
-int main() {
+int main()
+{
 
     int n, e;
     cin >> n >> e;
-    while(e--){
+    while (e--)
+    {
         int a, b;
         cin >> a >> b;
-        adj_list[a].push_back(b);   
-        adj_list[b].push_back(a);   
+        adj_list[a].push_back(b);
+        adj_list[b].push_back(a);
     }
     memset(vis, false, sizeof(vis));
     int src, dst;
     cin >> src >> dst;
     bfs(src);
-    if(vis[dst]){
+    if (vis[dst])
+    {
         cout << "Yes";
-    }else{
+    }
+    else
+    {
         cout << "No";
     }
     return 0;
