@@ -43,11 +43,11 @@ int main()
     bfs(src);
     if (vis[dst])
     {
-        cout << "Yes";
+        cout << "Yes\n";
     }
     else
     {
-        cout << "No";
+        cout << "No\n";
     }
     return 0;
 }
